@@ -1,0 +1,19 @@
+AT10, "Carl Lewis", 3
+AT20, "Laure Manaudou", 2
+AT30, "Marie Pierce", 2
+AT40, "Ali Zanou", 5
+(1, "-52kg", "M", "I", 1);
+AT50, "Lea Cassoli", 4
+AT60, "John Smith", 3
+AT70, "Moussad Marah", 1
+AT80, "David Douillet", 2
+AT90, "Thierry Lhermite", 2
+AT100, "Lukas Zala", 1
+(2, "+52kg", "F", "E", 1);
+(3, "100m", "M", "I", 2);
+(4, "200m", "M", "I", 2);
+(5, "simple", "M", "I", 3);
+(6, "double", "M", "E", 3);
+(7, "vitesse", "M", "E", 4);
+(8, "sprint", "M", "E", 4);
+AT110, "Bob Dylan", 3

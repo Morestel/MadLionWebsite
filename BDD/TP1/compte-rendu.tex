@@ -1,0 +1,101 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{hyperref}
+
+\pagestyle{headings}
+
+\title{Travaux pratiques MySQL 1}
+\author{Thomas MORESTEL}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Travaux pratique numéro 1
+
+\end{abstract}
+
+\newpage
+
+Question 2:
+On récupère le nom de notre table à l'aide de la commande 'SHOW DATABASE' puis 'USE /notre identifiant/' et enfin 'SHOW TABLES' pour voir si tut à fonctionner correctement.
+\newline
+Question 3:
+On regarde à l'intérieur de notre table à l'aide de la commande 'DESCRIBE', on choisit où insérer notre clé primaire puis soit on effectue un 'ALTER TABLE' $<nom de la table>$ ADD PRIMARY KEY $<La ou on veut mettre la table>$ ou alors lors du processus de création de table, on écrit 'PRIMARY KEY' en face.
+\newline
+Pour les clés étrangères, en face du tuple on écrit 'REFERENCES' puis l'adresse où la clé fait référence.
+
+Certaines valeurs sont connus d'avance comme le nom des médailles. Ainsi, on peut faire un 'ENUM('Element1', 'Element2', ...) 
+\newline
+Question 4:
+
+Pour tester les contraites de clés étrangères, en début de document il faut écrire $'SET  FOREIGN\_KEY\_CHECKS=1;'$
+
+J'avais inséré un nombre d'une nation n'existant pas pour un athlète, et lorsque j'ai sélectionné la table où il aurait dû appaître il n'y est pas car la valeur qui a été insérée n'est pas valide. De plus, de nombreuses erreurs s'étaient rajoutées concernant les clés étrangères.
+
+En désactivant la vérification, toutes les erreurs ont disparus et l'athlète est réapparu dans la table.
+
+Lorsque je réactive la contrainte, toutes les erreurs sont revenus. 
+\newline
+Question 5:
+
+UPDATE resultat
+SET medaille = 'O'
+WHERE numathlete=(SELECT numathlete FROM athlete WHERE nom='David Douillet');
+
+On effectue un 'SELECT * FROM resultat;' avant et après la modification pour voir si elle s'est bien déroulée.
+\newline
+Question 6:
+
+a-
+SELECT medaille
+FROM resultat, sport
+WHERE nom='Tennis'AND numjeux=(SELECT numjeux FROM jeux WHERE type='E' AND ville='Tokyo' AND annee=1964);
+\newline
+b-
+SELECT medaille, jeux.ville, jeux.annee, athlete.nom
+FROM resultat, jeux, athlete
+WHERE resultat.numjeux=jeux.numjeux AND resultat.numathlete=athlete.numathlete AND athlete.nom='Carl Lewis';
+\newline
+c-
+SELECT DISTINCT ville, annee
+FROM jeux, athlete, resultat
+WHERE resultat.numjeux=jeux.numjeux AND resultat.numathlete=athlete.numathlete AND athlete.nom LIKE "D%" OR athlete.nom LIKE "L%";
+\newline
+d-
+SELECT ville, annee
+FROM jeux, nation, participe, resultat, sport, epreuve
+WHERE epreuve.numsport=sport.numsport AND epreuve.numepreuve=resultat.numepreuve AND jeux.numjeux=resultat.numjeux AND resultat.numjeux=participe.numjeux AND participe.numnation=nation.numnation AND  nation.nom='Ethiopie' AND resultat.medaille='O' AND sport.nom LIKE 'Athletisme'; 
+
+e-
+SELECT ville, annee
+FROM nation, participe, jeux, resultat, epreuve
+WHERE nation.numnation=participe.numnation AND jeux.numjeux=participe.numjeux AND jeux.numjeux=resultat.numjeux AND epreuve.numepreuve=resultat.numepreuve AND epreuve.typeclass LIKE 'E' AND nation.nom LIKE 'France' AND resultat.medaille LIKE 'O';
+
+\newline
+f-
+SELECT COUNT(medaille), continent
+FROM nation, resultat, participe, jeux
+WHERE nation.numnation=participe.numnation AND jeux.numjeux=participe.numjeux AND resultat.numjeux=participe.numjeux
+GROUP BY continent
+ORDER BY COUNT(medaille) DESC;
+
+\newline
+
+SELECT continent, COUNT(medaille)
+FROM nation, resultat, participe, jeux
+WHERE nation.numnation=participe.numnation AND jeux.numjeux=participe.numjeux AND resultat.numjeux=participe.numjeux
+GROUP BY continent
+ORDER BY COUNT(medaille) DESC;
+
+
+\end{document}

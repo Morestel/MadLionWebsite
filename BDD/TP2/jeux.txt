@@ -1,0 +1,25 @@
+"1", "France", "Lyon", "E", "2016"
+"2", "Japon", "Tokyo", "E", "1964"
+"3", "Australie", "Sidney", "E", "2004"
+"4", "Japon", "Nagano", "H", "1998"
+"5", "France", "Alberville", "H", "1990"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

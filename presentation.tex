@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{article}
+%le préambule
+
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{url} % permet l'utilisation de la balise url pour les liens internet
+\usepackage{graphicx} % permet l'utilisation des images
+
+\title{Introduction à Linux} % titre de l'article
+\author{auteurs} % auteur de l'article
+\date{date} % date de l'article
+
+%document principal
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Le terminal}
+\subsection{Qu'est-ce que le terminal ?}
+  "Le terminal est un programme qui permet d'ouvrir une 'console' dans une
+  interface graphique. Il permet de lancer des commandes."\\
+  (\url{http://doc.ubuntu-fr.org/terminal})
+  \begin{center}
+   \includegraphics[width=350pt]{terminal.eps}
+  \end{center}
+\subsection{L'historique des commandes}
+  Toutes les commandes qui sont tapées dans le terminal sont enregistrées. Il est possible de revenir aux commandes précédentes en utilisant les flèches de direction 'haut' et 'bas'.
+
+\subsection{La complétion automatique des commandes}
+  Pour éviter de taper une commande en entier, il est possible d'utiliser la complétion automatique. Pour cela, il suffit simplement d'appuyer sur la touche de tabulation située à gauche de la lettre 'A'.
+
+\section{Les commandes de base}
+\subsection{Gestion de son arborescence}
+  Afin de manipuler son arborescence, il faut connaître les commandes suivantes :
+  \begin{itemize}
+  \item pwd : pour savoir le chemin absolu du répertoire courant ;
+  \item ls : pour lister le contenu du répertoire courant ;
+  \item mkdir : pour créer un répertoire ;
+  \item rm : pour supprimer des fichiers ;
+  \item cd : pour changer de répertoire.
+  \end{itemize}
+ 
+\subsection{Manipuler les fichiers}
+  Voici une liste de commandes utiles pour manipuler les fichiers :
+  \begin{center}
+   \begin{tabular}{|c|c|} %tableau de 2 colonnes, dont le contenu est centré (c) et avec des bordures |
+   \hline
+   file & connaître le type du fichier indépendamment de son extension \\
+   \hline
+   cat, more, less & afficher le contenu d'un fichier \\
+   \hline
+   emacs & éditer des fichiers texte \\
+   \hline
+   \end{tabular}
+  \end{center}
+  
+\section{Spécificités des fichiers \LaTeX}
+ \subsection{Avantages}
+  \LaTeX est un langage de programmation qui possède plusieurs avantages :
+  \begin{itemize}
+   \item il est possible d'ajouter des extensions grâce à des packages ;
+   \item les formats de sortie sont divers : dvi, pdf, html ;
+   \item permet de gérer de très gros fichiers texte ;
+   \item la mise en page est automatique.
+  \end{itemize}
+ \subsection{Inconvénients}
+  \begin{enumerate}
+   \item ce n'est pas une solution \textsc{wysiwyg} ;
+   \item il est nécessaire d'apprendre le nom des balises ;
+   \item la mise en page est automatique.
+  \end{enumerate}
+
+ \subsection{Divers}
+  Quelques points intéressants :
+  \begin{itemize}
+   \item il est possible d'écrire des formules mathématiques formatées~: $$\sum_{i=1}^{n}{i}=\frac{n(n-1)}{2}$$
+   \item il est possible de faire des présentations~:\\ \url{http://latex-beamer.sourceforge.net} ;
+   \item une introduction à \LaTeX :\\ \url{http://www.ctan.org/tex-archive/info/lshort/}.
+  \end{itemize}
+
+\end{document}

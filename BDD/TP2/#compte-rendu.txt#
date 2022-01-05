@@ -1,0 +1,5 @@
+Partie 1
+
+a) Les deux commandes ont pour principe de charger un fichier. Sauf que SOURCE s'execute dans mysql et est utilisé pour charger des scripts et mysqldump est utilisé à l'extérieur de mysql pour charger des fichiers txt (Le plus souvent pour implémenter une base de donéne)
+
+b) 

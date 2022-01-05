@@ -1,0 +1,12 @@
+
+
+INSERT INTO participe VALUES (1, 1);  -- participation aux jeux 1 de la nation 1
+INSERT INTO participe VALUES (1, 2);
+INSERT INTO participe VALUES (2, 1);
+INSERT INTO participe VALUES (2, 3);
+INSERT INTO participe VALUES (3, 1);
+INSERT INTO participe VALUES (3, 4);
+INSERT INTO participe VALUES (4, 2);
+INSERT INTO participe VALUES (4, 5);
+INSERT INTO participe VALUES (5, 2);
+INSERT INTO participe VALUES (5, 4);

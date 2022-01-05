@@ -1,0 +1,7 @@
+num / nom / cont
+
+1 / Ethiopie / Afrique
+2 / France / Europe
+3 / USA / Amérique
+4 / Italie / Europe
+5 / Maroc / Afrique
